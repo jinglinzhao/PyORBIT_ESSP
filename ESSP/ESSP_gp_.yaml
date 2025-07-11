@@ -1,0 +1,113 @@
+inputs:
+  ESSP_HARPS:
+    file: ESSP_HARPS.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  ESSP_HARPSN:
+    file: ESSP_HARPSN.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  ESSP_EXPRES:
+    file: ESSP_EXPRES.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  ESSP_NEID:
+    file: ESSP_NEID.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  ESSP_BIS_EXPRES:
+    file: ESSP_BIS_EXPRES.dat
+    kind: BIS
+    models:
+      - gp_multidimensional
+  ESSP_BIS_HARPS:
+    file: ESSP_BIS_HARPS.dat
+    kind: BIS
+    models:
+      - gp_multidimensional
+  ESSP_BIS_HARPSN:
+    file: ESSP_BIS_HARPSN.dat
+    kind: BIS
+    models:
+      - gp_multidimensional
+  ESSP_BIS_NEID:
+    file: ESSP_BIS_NEID.dat
+    kind: BIS
+    models:
+      - gp_multidimensional
+  ESSP_FIESTA1_EXPRES:
+    file: ESSP_FIESTA1_EXPRES.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional
+  ESSP_FIESTA1_HARPS:
+    file: ESSP_FIESTA1_HARPS.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional
+  ESSP_FIESTA1_HARPSN:
+    file: ESSP_FIESTA1_HARPSN.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional
+  ESSP_FIESTA1_NEID:
+    file: ESSP_FIESTA1_NEID.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional
+common:
+  planets:
+    b:
+      orbit: keplerian
+      boundaries:
+        P: [1.5, 10]
+        K: [0.1, 4.0]
+        e: [0.00, 0.50]
+      priors:
+        P: ['Gaussian', 2.9, 0.5]  # Based on your best model
+  activity:
+    boundaries:
+      Prot: [20.0, 35.0]
+      Pdec: [30.0, 1000.0]
+      Oamp: [0.01, 1.0]
+    priors:
+      Prot: ['Gaussian', 28.00, 5.0]
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 1.0, 1e-10]
+models:
+  radial_velocities:
+    planets:
+      - b
+  gp_multidimensional:
+    model: gp_multidimensional_quasiperiodic
+    common: activity
+    hyperparameters_condition: True
+    rotation_decay_condition: True
+    derivative:
+      RVdata: True
+      BISdata: True
+      FWHMdata: True      
+parameters:
+  Tref: 59332.189797
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 50000
+    nburn: 12000
+    thin: 100
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True

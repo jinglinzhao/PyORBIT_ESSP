@@ -1,0 +1,114 @@
+inputs:
+  ESSP_all_instruments:
+    file: ESSP_all_instruments.dat
+    kind: RV
+    models:
+    - radial_velocities
+    - gp_multidimensional
+  ESSP_BIS_all_instruments:
+    file: ESSP_BIS_all_instruments.dat
+    kind: BIS
+    models:
+    - gp_multidimensional
+  ESSP_FIESTA1_all_instruments:
+    file: ESSP_FIESTA1_all_instruments.dat
+    kind: FWHM
+    models:
+    - gp_multidimensional
+common:
+  planets:
+    b:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P:
+        - 1.5
+        - 10
+        K:
+        - 0.1
+        - 4.0
+        e:
+        - 0.0
+        - 0.5
+      priors:
+        P:
+        - Gaussian
+        - 2.9
+        - 1
+  activity:
+    boundaries:
+      Prot:
+      - 20.0
+      - 35.0
+      Pdec:
+      - 10.0
+      - 2000.0
+      Oamp:
+      - 0.01
+      - 5.0
+    priors:
+      Prot:
+      - Gaussian
+      - 28.0
+      - 5.0
+  star:
+    star_parameters:
+      priors:
+        mass:
+        - Gaussian
+        - 1.0
+        - 1.0e-10
+models:
+  radial_velocities:
+    planets:
+    - b
+  gp_multidimensional:
+    model: spleaf_multidimensional_esp
+    common: activity
+    n_harmonics: 4
+    hyperparameters_condition: true
+    rotation_decay_condition: true
+    derivative:
+      ESSP_all_instruments: true
+      ESSP_BIS_all_instruments: true
+      ESSP_FIESTA1_all_instruments: false
+    ESSP_all_instruments:
+      boundaries:
+        rot_amp:
+        - 0.0
+        - 5.0
+        con_amp:
+        - -100.0
+        - 100.0
+    ESSP_BIS_all_instruments:
+      boundaries:
+        rot_amp:
+        - 0.0
+        - 5.0
+        con_amp:
+        - -100.0
+        - 100.0
+    ESSP_FIESTA1_all_instruments:
+      boundaries:
+        rot_amp:
+        - 0.0
+        - 5.0
+        con_amp:
+        - -100.0
+        - 100.0
+parameters:
+  Tref: 59332.189797
+  low_ram_plot: true
+  plot_split_threshold: 1000
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 12
+  emcee:
+    npop_mult: 12
+    nsteps: 25000
+    nburn: 25000
+    thin: 20
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: true

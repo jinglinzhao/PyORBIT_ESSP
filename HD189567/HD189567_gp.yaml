@@ -1,0 +1,97 @@
+inputs:
+  HD189567_HARPS:
+    file: HD189567_HARPS.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  HD189567_ESPRESSO:
+    file: HD189567_ESPRESSO.dat
+    kind: RV
+    models:
+      - radial_velocities      
+      - gp_multidimensional
+  BISdata:
+    file: BIS_PyORBIT.dat
+    kind: BIS
+    models:
+      - gp_multidimensional      
+  FWHMdata:
+    file: FWHM_PyORBIT.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional      
+common:
+  planets:
+    b:
+      orbit: keplerian
+      boundaries:
+        P: [10, 30]
+        K: [0.1, 5.0]
+        e: [0.00, 0.40]
+    c:
+      orbit: keplerian
+      boundaries:
+        P: [30, 45]
+        K: [0.1, 5.0]
+        e: [0.10, 0.50]
+      priors:
+        P: ['Gaussian', 33.61, 0.5]  # Based on your best model
+        e: ['ModifiedJeffreys', 0.3, 0.1]  # Favoring moderate eccentricity
+    # d:
+    #   orbit: keplerian
+    #   boundaries:
+    #     P: [500, 5000]
+    #     K: [0.1, 5.0]
+    #     e: [0.00, 0.90]
+  activity:
+    boundaries:
+      Prot: [15.0, 50.0]
+      Pdec: [30.0, 1000.0]
+      Oamp: [0.01, 1.0]
+    priors:
+      Prot: ['Gaussian', 20.00, 1.0]
+      Oamp: ['Gaussian', 0.35, 0.035]    
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 0.83, 0.01]
+models:
+  radial_velocities:
+    planets:
+      - b
+      - c
+      # - d
+  gp_multidimensional:
+    model: tinygp_multidimensional_quasiperiodic
+    common: activity
+    hyperparameters_condition: True
+    rotation_decay_condition: True
+    RVdata:
+      boundaries:
+        rot_amp: [0.0, 20.0] #at least one must be positive definite
+        con_amp: [-20.0, 20.0]
+      derivative: True
+    BISdata:
+      boundaries:
+        rot_amp: [-20.0, 20.0]
+        con_amp: [-20.0, 20.0]
+      derivative: True
+    FWHMdata:
+      boundaries:
+        con_amp: [-50., 50.]
+      derivative: False      
+parameters:
+  Tref: 2452937.54737118
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 50000
+    nburn: 12000
+    thin: 100
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True

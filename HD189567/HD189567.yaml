@@ -1,0 +1,58 @@
+inputs:
+  HD189567_HARPS:
+    file: HD189567_HARPS.dat
+    kind: RV
+    models:
+      - radial_velocities
+  HD189567_ESPRESSO:
+    file: HD189567_ESPRESSO.dat
+    kind: RV
+    models:
+      - radial_velocities      
+common:
+  planets:
+    b:
+      orbit: keplerian
+      boundaries:
+        P: [10, 30]
+        K: [0.1, 5.0]
+        e: [0.00, 0.40]
+    c:
+      orbit: keplerian
+      boundaries:
+        P: [30, 45]
+        K: [0.1, 5.0]
+        e: [0.10, 0.50]
+      priors:
+        P: ['Gaussian', 33.61, 0.5]  # Based on your best model
+        e: ['ModifiedJeffreys', 0.3, 0.1]  # Favoring moderate eccentricity
+    d:
+      orbit: keplerian
+      boundaries:
+        P: [3000, 5000]
+        K: [0.1, 5.0]
+        e: [0.00, 0.50]
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 0.83, 0.01]
+models:
+  radial_velocities:
+    planets:
+      - b
+      - c
+      - d
+parameters:
+  Tref: 2452937.54737118
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 50000
+    nburn: 12000
+    thin: 100
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True

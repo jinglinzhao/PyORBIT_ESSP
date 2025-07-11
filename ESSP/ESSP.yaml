@@ -1,0 +1,53 @@
+inputs:
+  ESSP_HARPS:
+    file: ESSP_HARPS.dat
+    kind: RV
+    models:
+      - radial_velocities
+  ESSP_HARPSN:
+    file: ESSP_HARPSN.dat
+    kind: RV
+    models:
+      - radial_velocities    
+  ESSP_EXPRES:
+    file: ESSP_EXPRES.dat
+    kind: RV
+    models:
+      - radial_velocities    
+  ESSP_NEID:
+    file: ESSP_NEID.dat
+    kind: RV
+    models:
+      - radial_velocities     
+common:
+  planets:
+    b:
+      orbit: keplerian
+      boundaries:
+        P: [1.5, 10]
+        K: [0.1, 4.0]
+        e: [0.00, 0.50]
+      priors:
+        P: ['Gaussian', 2.9, 0.5]  # Based on your best model
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 1.0, 1e-10]
+models:
+  radial_velocities:
+    planets:
+      - b
+parameters:
+  Tref: 59332.189797
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 50000
+    nburn: 12000
+    thin: 100
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True
