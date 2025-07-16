@@ -1,4 +1,4 @@
-instrument="HARPSN_EXPRES_NEID_HARPS_poly"
+instrument="HARPSN_EXPRES_NEID_HARPS"
 NAME="ESSP_gp_${instrument}"
 
 pyorbit_run emcee ${NAME}.yaml
