@@ -1,5 +1,4 @@
 # Ignore data files
-*.dat
 *.p
 
 # Optional: Also ignore common Python/data science files
