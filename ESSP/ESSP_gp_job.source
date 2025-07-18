@@ -1,3 +1,4 @@
+#!/bin/bash  # Add shebang line
 instrument="HARPSN_EXPRES_NEID_HARPS"
 NAME="ESSP_gp_${instrument}"
 
@@ -6,5 +7,4 @@ pyorbit_results emcee ${NAME}.yaml -all > ./${NAME}/${NAME}.log
 
 cp ${NAME}.yaml ./${NAME}/
 
-afplay /System/Library/Sounds/Glass.aiff
-
+echo "Job completed successfully!"  # Add this instead

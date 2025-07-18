@@ -1,36 +1,62 @@
-#!/bin/sh 
-### General options 
-### -- specify queue -- 
+#!/bin/sh
+### General options
+### -- specify queue --
 #BSUB -q hpc
-### -- set the job Name -- 
+### -- set the job Name --
 #BSUB -J PyORBIT_ESSP
-### -- ask for number of cores (default: 1) -- 
-#BSUB -n 64
-### -- specify that the cores must be on the same host -- 
+### -- ask for number of cores --
+#BSUB -n 32
+### -- specify that the cores must be on the same host --
 #BSUB -R "span[hosts=1]"
-### -- specify that we need 3GB of memory per core/slot -- 
-#BSUB -R "rusage[mem=4GB]"
-### -- specify that we want the job to get killed if it exceeds 5 GB per core/slot -- 
-#BSUB -M 10GB
-### -- set walltime limit: hh:mm -- 
-#BSUB -W 1:00 
-### -- set the email address -- 
-# please uncomment the following line and put in your e-mail address,
-# if you want to receive e-mail notifications on a non-default address
-##BSUB -u jzhao@space.dtu.dk
-### -- send notification at start -- 
-#BSUB -B 
-### -- send notification at completion -- 
-#BSUB -N 
-### -- Specify the output and error file. %J is the job-id -- 
-### -- -o and -e mean append, -oo and -eo mean overwrite -- 
-#BSUB -o /work2/lbuc/jzhao/PyORBIT_ESSP/logfiles/Output_ESSP.out
-#BSUB -e /work2/lbuc/jzhao/PyORBIT_ESSP/logfiles/Error_ESSP.err
+### -- OPTIMIZED: reduce memory per core from 4GB to 1GB --
+#BSUB -R "rusage[mem=1GB]"
+### -- OPTIMIZED: reduce memory limit from 5GB to 2GB per core --
+#BSUB -M 2GB
+### -- OPTIMIZED: increase walltime from 1:00 to 3:00 hours --
+#BSUB -W 1:00
+### -- set the email address --
+#BSUB -u jzhao@space.dtu.dk
+### -- send notification at start --
+#BSUB -B
+### -- send notification at completion --
+#BSUB -N
+### -- Specify the output and error file --
+#BSUB -o /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP/logfiles/Output_ESSP_%J.out
+#BSUB -e /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP/logfiles/Error_ESSP_%J.err
 
+
+cd /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP
+mkdir -p logfiles
 
 # Activate Conda environment
-source /zhome/9d/b/207249/anaconda3/etc/profile.d/conda.sh  # This path depends on where conda is installed
+source /work2/lbuc/jzhao/conda_envs/conda/etc/profile.d/conda.sh
 conda activate pyorbit
 
-# here follow the commands you want to execute with input.in as the input file
-./ESSP_gp.source
+# Run PyORBIT analysis
+instrument="HARPS_EXPRES_NEID_HARPSN"
+NAME="ESSP_gp_${instrument}"
+
+echo "Starting PyORBIT analysis for ${NAME} at $(date)"
+echo "Working directory: $(pwd)"
+echo "Available cores: $LSB_DJOB_NUMPROC"
+
+# Create output directory
+mkdir -p ${NAME}
+
+# Add progress monitoring
+echo "Step 1: Running MCMC sampling..."
+pyorbit_run emcee ${NAME}.yaml
+
+echo "Step 2: Generating results at $(date)..."
+pyorbit_results emcee ${NAME}.yaml -all > ./${NAME}/${NAME}.log
+
+echo "Step 3: Copying configuration..."
+cp ${NAME}.yaml ./${NAME}/
+
+echo "PyORBIT analysis completed at $(date)"
+
+# Optional: Print resource usage
+echo "=== Resource Usage Summary ==="
+echo "Job ID: $LSB_JOBID"
+echo "Cores used: $LSB_DJOB_NUMPROC"
+echo "Host: $LSB_HOSTS"
