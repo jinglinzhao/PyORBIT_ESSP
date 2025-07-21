@@ -29,11 +29,12 @@ cd /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP
 mkdir -p logfiles
 
 # Activate Conda environment
-source /work2/lbuc/jzhao/conda_envs/conda/etc/profile.d/conda.sh
+source /zhome/9d/b/207249/anaconda3/etc/profile.d/conda.sh
 conda activate pyorbit
 
 # Run PyORBIT analysis
 instrument="HARPS_EXPRES_NEID_HARPSN"
+# instrument="HARPSN_EXPRES_NEID_HARPS"
 NAME="ESSP_gp_${instrument}"
 
 echo "Starting PyORBIT analysis for ${NAME} at $(date)"

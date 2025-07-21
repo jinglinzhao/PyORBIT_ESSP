@@ -80,8 +80,6 @@ models:
     n_harmonics: 4
     hyperparameters_condition: true
     rotation_decay_condition: true
-    use_gpu: true
-    jax_enable_x64: true
     derivative:
       ESSP_HARPSN: true
       ESSP_EXPRES: true
@@ -125,25 +123,17 @@ models:
         con_amp: [-100.0, 100.0]
 parameters:
   Tref: 59332.189797
-  safe_reload: True
   low_ram_plot: true
   plot_split_threshold: 1000
-  cpu_threads: 1
-  use_threading_pool: False
-  backend: 'jax'
-  jax_enable_x64: True
 solver:
   pyde:
     ngen: 50000
     npop_mult: 12
-    use_threading_pool: False
   emcee:
     npop_mult: 12
     nsteps: 25000
-    nburn: 25000
+    nburn: 6250
     thin: 20
-    multiprocessing: False
-    backend: 'jax'
   nested_sampling:
     nlive: 1000
   recenter_bounds: true
