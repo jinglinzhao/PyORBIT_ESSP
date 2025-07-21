@@ -52,8 +52,8 @@ echo ""
 
 # Activate Conda environment
 echo "=== Activating PyORBIT Environment ==="
-source /work2/lbuc/jzhao/conda_envs/conda/etc/profile.d/conda.sh
-conda activate pyorbit
+source /zhome/9d/b/207249/anaconda3/etc/profile.d/conda.sh
+conda activate pyorbit_gpu
 
 echo "Active environment: $CONDA_DEFAULT_ENV"
 echo "Python version: $(python --version)"
