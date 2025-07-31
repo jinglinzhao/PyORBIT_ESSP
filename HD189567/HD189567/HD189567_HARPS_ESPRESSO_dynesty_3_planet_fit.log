@@ -1,0 +1,531 @@
+
+PyORBIT v10.9.1
+
+Python version in use:
+3.10.16 (main, Dec 11 2024, 10:24:41) [Clang 14.0.6 ]
+ LaTeX disabled by default
+Using orbital model:  keplerian
+Using orbital parametrization:  Eastman2013
+
+Using orbital model:  keplerian
+Using orbital parametrization:  Standard
+
+Using orbital model:  keplerian
+Using orbital parametrization:  Eastman2013
+
+Posteriors analysis from dynesty run with posterior/evidence split = 0.000
+
+Summary - 
+=======
+niter: 100287
+ncall: 3990248
+eff(%):  2.513
+logz: -1722.660 +/-  0.298
+
+Computation of statistical+sampling errors skipped - workaround after dynesty>1.2 update
+
+Plot a summary of the run.
+Plot traces and 1-D marginalized posteriors.
+Plot the 2-D marginalized posteriors.
+
+Weighted mean and convariance from original samplings
+  HD189567_HARPS_jitter_0         2.424168 +-        0.005450
+  HD189567_HARPS_offset_0         0.161024 +-        0.013941
+  HD189567_HARPS_offset_1        16.158168 +-        0.526193
+  HD189567_ESPRESSO_jitter_0         1.291955 +-        0.025035
+  HD189567_ESPRESSO_offset_0        -1.056051 +-        0.461822
+  b_P         3.836359 +-        0.000000
+  b_K         1.151360 +-        0.006896
+  b_sre_coso         0.026820 +-        0.026384
+  b_sre_sino         0.155163 +-        0.021039
+  b_mean_long       163.171609 +-       29.757785
+  c_P         5.071483 +-        0.000000
+  c_K         0.903205 +-        0.021959
+  c_e         0.302715 +-        0.014268
+  c_omega        84.824403 +-      758.499507
+  c_mean_long       112.925451 +-      107.967212
+  d_P        11.989593 +-        0.001764
+  d_K         1.107596 +-        0.017196
+  d_sre_coso         0.690467 +-        0.000214
+  d_sre_sino        -0.016082 +-        0.009151
+  d_mean_long        55.896677 +-       69.777158
+
+From now on, all results are from weighted samples
+
+ Reference Time Tref: 2452937.54737118
+
+ Dimensions: 20
+ Samples:    100287
+
+ln-probability distribution:  -1636.36       -3.95      3.21 (15-84 p) 
+ln-prior       distribution:      0.00        0.00      0.00 (15-84 p) 
+ln-likelihood  distribution:  -1636.36       -3.95      3.21 (15-84 p) 
+
+
+*** Information criteria using the likelihood distribution
+
+ BIC from distribution  (using likelihood)  =   3404.14     -6.42    7.90 (15-84 p)
+ AIC from distribution  (using likelihood)  =   3312.73     -6.42    7.90 (15-84 p)
+ AICc from distribution (using likelihood)  =   3313.94     -6.42    7.90 (15-84 p)
+
+
+*** Information criteria using the median parameter set
+
+ Median ln_probability =  -1628.38
+ Median ln_priors      =      0.00
+ Median ln_likelihood  =  -1628.38
+
+ Median BIC  (using likelihood) =   3388.18
+ Median AIC  (using likelihood) =   3296.76
+ Median AICc (using likelihood) =   3297.97
+
+
+*** Information criteria using the MAP parameter set
+
+ MAP ln_priors     =  -1723.56
+ MAP ln_priors     =    -87.61
+ MAP ln_likelihood =  -1635.95
+
+ MAP BIC  (using likelihood)    =   3403.32
+ MAP AIC  (using likelihood)    =   3311.90
+ MAP AICc (using likelihood)    =   3313.12
+
+ AICc suggested over AIC because NDATA ( 714 ) < 40 * NDIM ( 20 )
+
+****************************************************************************************************
+
+
+====================================================================================================
+     Ids, spaces (s), boundaries (b) and priors (p) of the sampler parameters     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0      id:  15  s:Linear      b:[      0.0020,     370.0000]   p:Uniform   []
+offset_0      id:  16  s:Linear      b:[ -10009.7000,   10022.8000]   p:Uniform   []
+offset_1      id:  17  s:Linear      b:[ -10009.7000,   10022.8000]   p:Uniform   []
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0      id:  18  s:Linear      b:[      0.0010,      30.0000]   p:Uniform   []
+offset_0      id:  19  s:Linear      b:[ -10002.8000,   10004.3000]   p:Uniform   []
+
+----- common model:  b
+P             id:   0  s:Log_Base2   b:[      3.3219,       4.9069]   p:Uniform   []
+K             id:   1  s:Log_Base2   b:[     -3.3219,       2.3219]   p:Uniform   []
+sre_coso      id:   2  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+sre_sino      id:   3  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+mean_long     id:   4  s:Linear      b:[      0.0000,     360.0000]   p:Uniform   []
+e             derived (no id, space, bound)                           p:Uniform   [0.  0.4]
+omega         derived (no id, space, bound)                           p:Uniform   [0.0, 360.0]
+
+----- common model:  c
+P             id:   5  s:Log_Base2   b:[      4.9069,       5.4919]   p:Gaussian   [33.61  0.5 ]
+K             id:   6  s:Log_Base2   b:[     -3.3219,       2.3219]   p:Uniform   []
+e             id:   7  s:Linear      b:[      0.1000,       0.5000]   p:ModifiedJeffreys   [0.3 0.1]
+omega         id:   8  s:Linear      b:[      0.0000,     360.0000]   p:Uniform   []
+mean_long     id:   9  s:Linear      b:[      0.0000,     360.0000]   p:Uniform   []
+
+----- common model:  d
+P             id:  10  s:Log_Base2   b:[     11.5507,      12.2877]   p:Uniform   []
+K             id:  11  s:Log_Base2   b:[     -3.3219,       2.3219]   p:Uniform   []
+sre_coso      id:  12  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+sre_sino      id:  13  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+mean_long     id:  14  s:Linear      b:[      0.0000,     360.0000]   p:Uniform   []
+e             derived (no id, space, bound)                           p:Uniform   [0.  0.5]
+omega         derived (no id, space, bound)                           p:Uniform   [0.0, 360.0]
+
+----- common model:  star_parameters
+mass          derived (no id, space, bound)                           p:Gaussian   [0.83 0.01]
+
+
+****************************************************************************************************
+****************************************************************************************************
+
+ Confidence intervals (median value, 34.135th percentile from the median on the left and right side)
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0        15         2.422       -0.071        0.076   (15-84 p)   [    0.0020,   370.0000]
+offset_0        16          0.16        -0.12         0.12   (15-84 p)   [-10009.7000, 10022.8000]
+offset_1        17         16.16        -0.73         0.72   (15-84 p)   [-10009.7000, 10022.8000]
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0        18          1.28        -0.14         0.17   (15-84 p)   [    0.0010,    30.0000]
+offset_0        19         -1.13        -0.57         0.71   (15-84 p)   [-10002.8000, 10004.3000]
+
+----- common model:  b
+P                0      3.836357    -0.000091     0.000095   (15-84 p)   [    3.3219,     4.9069]
+K                1         1.154       -0.085        0.081   (15-84 p)   [   -3.3219,     2.3219]
+sre_coso         2          0.03        -0.18         0.17   (15-84 p)   [   -1.0000,     1.0000]
+sre_sino         3          0.18        -0.18         0.13   (15-84 p)   [   -1.0000,     1.0000]
+mean_long        4         163.1         -5.3          5.6   (15-84 p)   [    0.0000,   360.0000]
+
+----- common model:  c
+P                5       5.07147     -0.00037      0.00041   (15-84 p)   [    4.9069,     5.4919]
+K                6          0.90        -0.15         0.15   (15-84 p)   [   -3.3219,     2.3219]
+e                7          0.31        -0.15         0.14   (15-84 p)   [    0.1000,     0.5000]
+omega            8            79          -13           21   (15-84 p)   [    0.0000,   360.0000]
+mean_long        9         111.7         -8.8           12   (15-84 p)   [    0.0000,   360.0000]
+
+----- common model:  d
+P               10        11.983       -0.028        0.038   (15-84 p)   [   11.5507,    12.2877]
+K               11          1.11        -0.14         0.12   (15-84 p)   [   -3.3219,     2.3219]
+sre_coso        12        0.6946       -0.016       0.0082   (15-84 p)   [   -1.0000,     1.0000]
+sre_sino        13        -0.018       -0.094        0.096   (15-84 p)   [   -1.0000,     1.0000]
+mean_long       14          54.8         -6.5          8.2   (15-84 p)   [    0.0000,   360.0000]
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0                 2.422       -0.071        0.076    (15-84 p)
+offset_0                  0.16        -0.12         0.12    (15-84 p)
+offset_1                 16.16        -0.73         0.72    (15-84 p)
+
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0                  1.28        -0.14         0.17    (15-84 p)
+offset_0                 -1.13        -0.57         0.71    (15-84 p)
+
+
+----- common model:  b
+P                     14.28429     -0.00090      0.00094    (15-84 p)
+K                         2.22        -0.13         0.13    (15-84 p)
+mean_long                163.1         -5.3          5.6    (15-84 p)
+e                        0.065       -0.045        0.059    (15-84 p)
+omega                       80          -49           72    (15-84 p)
+
+----- common model:  c
+P                      33.6252      -0.0087       0.0096    (15-84 p)
+K                         1.87        -0.18         0.21    (15-84 p)
+e                         0.31        -0.15         0.14    (15-84 p)
+omega                       79          -13           21    (15-84 p)
+mean_long                111.7         -8.8           12    (15-84 p)
+
+----- common model:  d
+P                         4047          -78          108    (15-84 p)
+K                         2.16        -0.19         0.19    (15-84 p)
+mean_long                 54.8         -6.5          8.2    (15-84 p)
+e                       0.4908       -0.016       0.0069    (15-84 p)
+omega                     -1.5         -7.8          7.9    (15-84 p)
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+Computing planetary mass under the approximation M_planet << M_star (threshold at 30.0 Me)
+M_Mj                    0.0234      -0.0013       0.0014    (15-84 p)
+M_Me                      7.43        -0.43         0.43    (15-84 p)
+Tc                  2452948.90        -0.33         0.31    (15-84 p)
+a_AU_(M)               0.10828     -0.00043      0.00043    (15-84 p)
+
+----- common model:  c
+Inclination fixed to 90 deg!
+Computing planetary mass under the approximation M_planet << M_star (threshold at 30.0 Me)
+M_Mj                    0.0248      -0.0020       0.0022    (15-84 p)
+M_Me                      7.88        -0.64         0.69    (15-84 p)
+Tc                  2452968.64        -0.69         0.62    (15-84 p)
+a_AU_(M)               0.19161     -0.00078      0.00076    (15-84 p)
+
+----- common model:  d
+Inclination fixed to 90 deg!
+Computing exact mass of the planet (average approximate mass larger than 30.0 Me)
+M_Mj                     0.131       -0.011        0.012    (15-84 p)
+M_Me                      41.6         -3.6          3.7    (15-84 p)
+Tc                     2456778          -36           45    (15-84 p)
+a_AU_(M)                 4.672       -0.063        0.084    (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the Maximum a Posteriori probability ( -1626.6818961151819 )
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0        15      2.383417 [    0.0020,   370.0000]
+offset_0        16      0.126867 [-10009.7000, 10022.8000]
+offset_1        17     16.499669 [-10009.7000, 10022.8000]
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0        18      1.240597 [    0.0010,    30.0000]
+offset_0        19     -1.896234 [-10002.8000, 10004.3000]
+
+----- common model:  b
+P                0      3.836447 [    3.3219,     4.9069]
+K                1      1.211925 [   -3.3219,     2.3219]
+sre_coso         2     -0.046556 [   -1.0000,     1.0000]
+sre_sino         3      0.333989 [   -1.0000,     1.0000]
+mean_long        4    168.083092 [    0.0000,   360.0000]
+
+----- common model:  c
+P                5      5.072099 [    4.9069,     5.4919]
+K                6      0.789700 [   -3.3219,     2.3219]
+e                7      0.197059 [    0.1000,     0.5000]
+omega            8    123.050513 [    0.0000,   360.0000]
+mean_long        9    128.913157 [    0.0000,   360.0000]
+
+----- common model:  d
+P               10     11.944596 [   11.5507,    12.2877]
+K               11      1.249570 [   -3.3219,     2.3219]
+sre_coso        12      0.666997 [   -1.0000,     1.0000]
+sre_sino        13      0.156709 [   -1.0000,     1.0000]
+mean_long       14     52.565401 [    0.0000,   360.0000]
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0              2.383417 
+offset_0              0.126867 
+offset_1             16.499669 
+
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0              1.240597 
+offset_0             -1.896234 
+
+
+----- common model:  b
+P                    14.285179 
+K                     2.316465 
+mean_long           168.083092 
+e                     0.113716 
+omega                97.935587 
+
+----- common model:  c
+P                    33.639841 
+K                     1.728715 
+e                     0.197059 
+omega               123.050513 
+mean_long           128.913157 
+
+----- common model:  d
+P                  3941.681957 
+K                     2.377705 
+mean_long            52.565401 
+e                     0.469443 
+omega                13.221687 
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+M_Mj                  0.024474 
+M_Me                  7.780103 
+Tc              2452948.799898 
+a_AU_(M)              0.108754 
+
+----- common model:  c
+Inclination fixed to 90 deg!
+M_Mj                  0.024007 
+M_Me                  7.631767 
+Tc              2452968.571071 
+a_AU_(M)              0.192614 
+
+----- common model:  d
+Inclination fixed to 90 deg!
+M_Mj                  0.143910 
+M_Me                 45.748220 
+Tc              2456777.333024 
+a_AU_(M)              4.586565 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the sample closest to the median values ( -1637.3438892924664 )
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0        15      2.413394 [    0.0020,   370.0000]
+offset_0        16      0.089752 [-10009.7000, 10022.8000]
+offset_1        17     16.517400 [-10009.7000, 10022.8000]
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0        18      1.274743 [    0.0010,    30.0000]
+offset_0        19     -1.402691 [-10002.8000, 10004.3000]
+
+----- common model:  b
+P                0      3.836310 [    3.3219,     4.9069]
+K                1      1.187087 [   -3.3219,     2.3219]
+sre_coso         2     -0.034689 [   -1.0000,     1.0000]
+sre_sino         3      0.157327 [   -1.0000,     1.0000]
+mean_long        4    161.276614 [    0.0000,   360.0000]
+
+----- common model:  c
+P                5      5.071463 [    4.9069,     5.4919]
+K                6      0.947192 [   -3.3219,     2.3219]
+e                7      0.320973 [    0.1000,     0.5000]
+omega            8     79.155120 [    0.0000,   360.0000]
+mean_long        9    111.991802 [    0.0000,   360.0000]
+
+----- common model:  d
+P               10     11.969181 [   11.5507,    12.2877]
+K               11      1.062289 [   -3.3219,     2.3219]
+sre_coso        12      0.689944 [   -1.0000,     1.0000]
+sre_sino        13     -0.022380 [   -1.0000,     1.0000]
+mean_long       14     53.485495 [    0.0000,   360.0000]
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  HD189567_HARPS
+jitter_0              2.413394 
+offset_0              0.089752 
+offset_1             16.517400 
+
+
+----- dataset:  HD189567_ESPRESSO
+jitter_0              1.274743 
+offset_0             -1.402691 
+
+
+----- common model:  b
+P                    14.283820 
+K                     2.276926 
+mean_long           161.276614 
+e                     0.025955 
+omega               102.434334 
+
+----- common model:  c
+P                    33.625020 
+K                     1.928116 
+e                     0.320973 
+omega                79.155120 
+mean_long           111.991802 
+
+----- common model:  d
+P                  4009.428928 
+K                     2.088242 
+mean_long            53.485495 
+e                     0.476524 
+omega                -1.857840 
+
+----- common model:  star_parameters
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+M_Mj                  0.023807 
+M_Me                  7.568168 
+Tc              2452949.028064 
+a_AU_(M)              0.107851 
+
+----- common model:  c
+Inclination fixed to 90 deg!
+M_Mj                  0.025388 
+M_Me                  8.070839 
+Tc              2452968.599925 
+a_AU_(M)              0.190783 
+
+----- common model:  d
+Inclination fixed to 90 deg!
+M_Mj                  0.125626 
+M_Me                 39.935696 
+Tc              2456762.951549 
+a_AU_(M)              4.621756 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+ *** Please provide a prior on stellar mass, radius or density *** 
+
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+Plotting full_correlation plot with pygtc
+
+****************************************************************************************************
+
+Plotting the common models corner plots
+     Common model:  b
+     Common model:  c
+     Common model:  d
+     Common model:  star_parameters
+
+****************************************************************************************************
+
+Plotting the dataset + models corner plots 
+
+     Dataset:  HD189567_HARPS     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  HD189567_HARPS     model:  radial_velocities_b  corner plot  done 
+     Dataset:  HD189567_HARPS     model:  radial_velocities_c  corner plot  starting 
+     Dataset:  HD189567_HARPS     model:  radial_velocities_c  corner plot  done 
+     Dataset:  HD189567_HARPS     model:  radial_velocities_d  corner plot  starting 
+     Dataset:  HD189567_HARPS     model:  radial_velocities_d  corner plot  done 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_b  corner plot  done 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_c  corner plot  starting 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_c  corner plot  done 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_d  corner plot  starting 
+     Dataset:  HD189567_ESPRESSO     model:  radial_velocities_d  corner plot  done 
+
+****************************************************************************************************
+
+ Saving the planet parameter samplings to files (with plots)
+
+****************************************************************************************************
+
+ Saving all the parameter samplings to files (with plots)
+
+****************************************************************************************************
+
+ Computing the models for plot/data writing 
+ Writing the plots 
+ Writing the   data files 
+ Writing the  MAP_ data files 
+ Writing the  sampleMED_ data files 
+
+****************************************************************************************************
+

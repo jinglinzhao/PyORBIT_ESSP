@@ -1,0 +1,1022 @@
+
+PyORBIT v10.9.1
+
+Python version in use:
+3.10.16 (main, Dec 11 2024, 10:24:41) [Clang 14.0.6 ]
+ LaTeX disabled by default
+Using orbital model:  keplerian
+Using orbital parametrization:  Eastman2013
+
+gp_multidimensional  S+LEAF model, number of harmonics: 4
+
+
+WARNING: burn-in value is larger than the length of the chains, resized to 1/4 of the chain length
+new burn-in will be used for statistical analysis, but kept in the plots as a reminder of your mistake
+
+ emcee version:  3.1.6
+
+ Reference Time Tref: 59332.189797
+
+ Dimensions: 44
+ Nwalkers:   528
+ Steps:      25000
+
+
+Recomputing ln-prior, it may take a while...
+
+ln-probability distribution:  -1251.49       -6.44      5.57 (15-84 p) 
+ln-prior       distribution:   -271.38       -0.13      0.04 (15-84 p) 
+ln-likelihood  distribution:   -980.06       -6.42      5.55 (15-84 p) 
+
+
+*** Information criteria using the likelihood distribution
+
+ BIC from distribution  (using likelihood)  =   2233.39    -11.09   12.83 (15-84 p)
+ AIC from distribution  (using likelihood)  =   2048.13    -11.09   12.83 (15-84 p)
+ AICc from distribution (using likelihood)  =   2056.87    -11.09   12.83 (15-84 p)
+
+
+*** Information criteria using the median parameter set
+
+ Median ln_probability =  -1232.09
+ Median ln_priors      =   -271.34
+ Median ln_likelihood  =   -960.75
+
+ Median BIC  (using likelihood) =   2194.77
+ Median AIC  (using likelihood) =   2009.51
+ Median AICc (using likelihood) =   2018.25
+
+
+*** Information criteria using the MAP parameter set
+
+ MAP ln_priors     =  -1232.89
+ MAP ln_priors     =   -271.39
+ MAP ln_likelihood =   -961.50
+
+ MAP BIC  (using likelihood)    =   2196.26
+ MAP AIC  (using likelihood)    =   2010.99
+ MAP AICc (using likelihood)    =   2019.73
+
+ AICc suggested over AIC because NDATA ( 498 ) < 40 * NDIM ( 44 )
+
+****************************************************************************************************
+
+
+Computing the autocorrelation time of the chains
+
+***** WARNING ******
+The integrated autocorrelation time cannot be reliably estimated
+likely the chains are too short, and ACF analysis is not fully reliable
+emcee.autocorr.integrated_time tolerance lowered to 20
+If you still get a warning, you should drop these results entirely
+Chains too short to apply convergence criteria
+They should be at least 7400*nthin = 148000
+
+ ACF computation failed, no plot will be generated 
+
+
+====================================================================================================
+     Ids, spaces (s), boundaries (b) and priors (p) of the sampler parameters     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0      id:   8  s:Linear      b:[      0.0015,      17.2000]   p:Uniform   []
+offset_0      id:   9  s:Linear      b:[ -10004.2510,   10005.0770]   p:Uniform   []
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp       id:  10  s:Linear      b:[      0.0000,      50.0000]   p:Uniform   []
+con_amp       id:  11  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+poly_c1       id:  12  s:Linear      b:[-1000000.0000, 1000000.0000]   p:Uniform   []
+poly_c2       id:  13  s:Linear      b:[-1000000.0000, 1000000.0000]   p:Uniform   []
+x_zero        derived (no id, space, bound)                           p:None   []
+
+----- dataset:  ESSP_EXPRES
+jitter_0      id:  14  s:Linear      b:[      0.0017,      18.9000]   p:Uniform   []
+offset_0      id:  15  s:Linear      b:[ -10004.1700,   10004.5630]   p:Uniform   []
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp       id:  16  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  17  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset:  ESSP_NEID
+jitter_0      id:  18  s:Linear      b:[      0.0024,      28.9000]   p:Uniform   []
+offset_0      id:  19  s:Linear      b:[ -10003.7260,   10006.8360]   p:Uniform   []
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp       id:  20  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  21  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset:  ESSP_HARPS
+jitter_0      id:  22  s:Linear      b:[      0.0019,      21.8000]   p:Uniform   []
+offset_0      id:  23  s:Linear      b:[ -10004.1660,   10005.6730]   p:Uniform   []
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp       id:  24  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  25  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+poly_c1       id:  26  s:Linear      b:[-1000000.0000, 1000000.0000]   p:Uniform   []
+poly_c2       id:  27  s:Linear      b:[-1000000.0000, 1000000.0000]   p:Uniform   []
+x_zero        derived (no id, space, bound)                           p:None   []
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0      id:  28  s:Linear      b:[      0.0095,      95.0000]   p:Uniform   []
+offset_0      id:  29  s:Linear      b:[ -10004.2830,   10004.6830]   p:Uniform   []
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp       id:  30  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  31  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0      id:  32  s:Linear      b:[      0.0095,      95.0000]   p:Uniform   []
+offset_0      id:  33  s:Linear      b:[ -10007.9920,   10006.5920]   p:Uniform   []
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp       id:  34  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  35  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0      id:  36  s:Linear      b:[      0.0095,      95.0000]   p:Uniform   []
+offset_0      id:  37  s:Linear      b:[ -10005.2830,   10005.2330]   p:Uniform   []
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp       id:  38  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  39  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0      id:  40  s:Linear      b:[      0.0095,      95.0000]   p:Uniform   []
+offset_0      id:  41  s:Linear      b:[ -10007.0000,   10004.9000]   p:Uniform   []
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp       id:  42  s:Linear      b:[    -50.0000,      50.0000]   p:Uniform   []
+con_amp       id:  43  s:Linear      b:[   -100.0000,     100.0000]   p:Uniform   []
+
+----- common model:  b
+P             id:   0  s:Log_Base2   b:[      0.5850,       3.3219]   p:Gaussian   [2.9 1. ]
+K             id:   1  s:Log_Base2   b:[     -3.3219,       2.0000]   p:Uniform   []
+sre_coso      id:   2  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+sre_sino      id:   3  s:Linear      b:[     -1.0000,       1.0000]   p:Uniform   []
+mean_long     id:   4  s:Linear      b:[    -67.9494,     292.0506]   p:Uniform   []
+e             derived (no id, space, bound)                           p:Uniform   [0.  0.5]
+omega         derived (no id, space, bound)                           p:Uniform   [0.0, 360.0]
+
+----- common model:  activity
+Prot          id:   5  s:Linear      b:[     20.0000,      35.0000]   p:Gaussian   [28.  5.]
+Pdec          id:   6  s:Linear      b:[     10.0000,    2000.0000]   p:Uniform   []
+Oamp          id:   7  s:Log_Base2   b:[     -6.6439,       2.3219]   p:Uniform   []
+
+----- common model:  star_parameters
+mass          derived (no id, space, bound)                           p:Gaussian   [1.e+00 1.e-10]
+
+----- common model:  polynomial_trend
+
+
+****************************************************************************************************
+****************************************************************************************************
+
+ Confidence intervals (median value, 34.135th percentile from the median on the left and right side)
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0         8         0.825       -0.093         0.11   (15-84 p)   [    0.0015,    17.2000]
+offset_0         9           0.7         -1.6          2.5   (15-84 p)   [-10004.2510, 10005.0770]
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp         10          37.7          -10          8.2   (15-84 p)   [    0.0000,    50.0000]
+con_amp         11           -22          -15           19   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+poly_c1         12         0.114       -0.022        0.023   (15-84 p)   [-1000000.0000, 1000000.0000]
+poly_c2         13       -0.0024      -0.0040       0.0038   (15-84 p)   [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_EXPRES
+jitter_0        14          1.17        -0.11         0.12   (15-84 p)   [    0.0017,    18.9000]
+offset_0        15           0.4         -2.0          2.4   (15-84 p)   [-10004.1700, 10004.5630]
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp         16             3          -16           14   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         17           -21          -11           10   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_NEID
+jitter_0        18          1.74        -0.15         0.17   (15-84 p)   [    0.0024,    28.9000]
+offset_0        19           2.1         -1.6          2.1   (15-84 p)   [-10003.7260, 10006.8360]
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp         20          40.1          -12          7.1   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         21           -11          -25           21   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_HARPS
+jitter_0        22          1.01        -0.11         0.13   (15-84 p)   [    0.0019,    21.8000]
+offset_0        23           0.3         -1.6          1.9   (15-84 p)   [-10004.1660, 10005.6730]
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp         24            31          -13           12   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         25           -13          -16           21   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+poly_c1         26         0.143       -0.041        0.036   (15-84 p)   [-1000000.0000, 1000000.0000]
+poly_c2         27       -0.0016      -0.0045       0.0047   (15-84 p)   [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0        28          1.66        -0.22         0.26   (15-84 p)   [    0.0095,    95.0000]
+offset_0        29           0.1         -1.8          2.7   (15-84 p)   [-10004.2830, 10004.6830]
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp         30          37.4          -13          8.7   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         31           -23          -21           19   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0        32          2.68        -0.28         0.32   (15-84 p)   [    0.0095,    95.0000]
+offset_0        33          -0.5         -5.7          4.3   (15-84 p)   [-10007.9920, 10006.5920]
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp         34             5          -39           35   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         35            52          -33           27   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0        36          1.82        -0.20         0.22   (15-84 p)   [    0.0095,    95.0000]
+offset_0        37           0.3         -1.3          1.6   (15-84 p)   [-10005.2830, 10005.2330]
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp         38           -28          -15           18   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         39           -10          -10           15   (15-84 p)   [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0        40          2.01        -0.29         0.33   (15-84 p)   [    0.0095,    95.0000]
+offset_0        41          -0.6         -4.3          3.3   (15-84 p)   [-10007.0000, 10004.9000]
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp         42           -34          -11           19   (15-84 p)   [  -50.0000,    50.0000]
+con_amp         43            35          -18           22   (15-84 p)   [ -100.0000,   100.0000]
+
+----- common model:  b
+P                0        1.5302      -0.0048       0.0054   (15-84 p)   [    0.5850,     3.3219]
+K                1         1.207       -0.079        0.077   (15-84 p)   [   -3.3219,     2.0000]
+sre_coso         2        -0.275       -0.094         0.16   (15-84 p)   [   -1.0000,     1.0000]
+sre_sino         3         -0.11        -0.13         0.16   (15-84 p)   [   -1.0000,     1.0000]
+mean_long        4         109.9         -6.1          6.7   (15-84 p)   [  -67.9494,   292.0506]
+
+----- common model:  activity
+Prot             5          27.7         -1.7          2.6   (15-84 p)   [   20.0000,    35.0000]
+Pdec             6            96          -29           77   (15-84 p)   [   10.0000,  2000.0000]
+Oamp             7          0.34        -0.29         0.27   (15-84 p)   [   -6.6439,     2.3219]
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0                 0.825       -0.093         0.11    (15-84 p)
+offset_0                   0.7         -1.6          2.5    (15-84 p)
+
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp                   37.7          -10          8.2    (15-84 p)
+con_amp                    -22          -15           19    (15-84 p)
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+x_zero            59346.600061                              [fixed]
+poly_c1                  0.114       -0.022        0.023    (15-84 p)
+poly_c2                -0.0024      -0.0040       0.0038    (15-84 p)
+
+----- dataset:  ESSP_EXPRES
+jitter_0                  1.17        -0.11         0.12    (15-84 p)
+offset_0                   0.4         -2.0          2.4    (15-84 p)
+
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp                      3          -16           14    (15-84 p)
+con_amp                    -21          -11           10    (15-84 p)
+
+----- dataset:  ESSP_NEID
+jitter_0                  1.74        -0.15         0.17    (15-84 p)
+offset_0                   2.1         -1.6          2.1    (15-84 p)
+
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp                   40.1          -12          7.1    (15-84 p)
+con_amp                    -11          -25           21    (15-84 p)
+
+----- dataset:  ESSP_HARPS
+jitter_0                  1.01        -0.11         0.13    (15-84 p)
+offset_0                   0.3         -1.6          1.9    (15-84 p)
+
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp                     31          -13           12    (15-84 p)
+con_amp                    -13          -16           21    (15-84 p)
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+x_zero            59345.406230                              [fixed]
+poly_c1                  0.143       -0.041        0.036    (15-84 p)
+poly_c2                -0.0016      -0.0045       0.0047    (15-84 p)
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0                  1.66        -0.22         0.26    (15-84 p)
+offset_0                   0.1         -1.8          2.7    (15-84 p)
+
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp                   37.4          -13          8.7    (15-84 p)
+con_amp                    -23          -21           19    (15-84 p)
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0                  2.68        -0.28         0.32    (15-84 p)
+offset_0                  -0.5         -5.7          4.3    (15-84 p)
+
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp                      5          -39           35    (15-84 p)
+con_amp                     52          -33           27    (15-84 p)
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0                  1.82        -0.20         0.22    (15-84 p)
+offset_0                   0.3         -1.3          1.6    (15-84 p)
+
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp                    -28          -15           18    (15-84 p)
+con_amp                    -10          -10           15    (15-84 p)
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0                  2.01        -0.29         0.33    (15-84 p)
+offset_0                  -0.6         -4.3          3.3    (15-84 p)
+
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp                    -34          -11           19    (15-84 p)
+con_amp                     35          -18           22    (15-84 p)
+
+----- common model:  b
+P                       2.8882      -0.0096        0.011    (15-84 p)
+K                         2.31        -0.12         0.13    (15-84 p)
+mean_long                109.9         -6.1          6.7    (15-84 p)
+e                        0.107       -0.060        0.059    (15-84 p)
+omega                     -159          -32           32    (15-84 p)
+
+----- common model:  activity
+Prot                      27.7         -1.7          2.6    (15-84 p)
+Pdec                        96          -29           77    (15-84 p)
+Oamp                      1.26        -0.23         0.26    (15-84 p)
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+Computing planetary mass under the approximation M_planet << M_star (threshold at 30.0 Me)
+M_Mj                   0.01605     -0.00082      0.00085    (15-84 p)
+M_Me                      5.10        -0.26         0.27    (15-84 p)
+Tc                   59334.963         -2.7        0.072    (15-84 p)
+a_AU_(M)              0.039690    -0.000088     0.000099    (15-84 p)
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the Maximum a Posteriori probability ( -1232.8894365070041 )
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0         8      0.797638 [    0.0015,    17.2000]
+offset_0         9      0.734597 [-10004.2510, 10005.0770]
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp         10     37.846682 [    0.0000,    50.0000]
+con_amp         11     -2.632263 [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+poly_c1         12      0.112686 [-1000000.0000, 1000000.0000]
+poly_c2         13     -0.004687 [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_EXPRES
+jitter_0        14      1.223940 [    0.0017,    18.9000]
+offset_0        15      0.689932 [-10004.1700, 10004.5630]
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp         16     17.808880 [  -50.0000,    50.0000]
+con_amp         17     -8.240368 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_NEID
+jitter_0        18      1.518415 [    0.0024,    28.9000]
+offset_0        19      0.862343 [-10003.7260, 10006.8360]
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp         20     30.218788 [  -50.0000,    50.0000]
+con_amp         21      9.659903 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_HARPS
+jitter_0        22      0.845817 [    0.0019,    21.8000]
+offset_0        23     -0.400752 [-10004.1660, 10005.6730]
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp         24     27.065254 [  -50.0000,    50.0000]
+con_amp         25      5.622033 [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+poly_c1         26      0.125084 [-1000000.0000, 1000000.0000]
+poly_c2         27     -0.004826 [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0        28      1.353433 [    0.0095,    95.0000]
+offset_0        29     -0.389882 [-10004.2830, 10004.6830]
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp         30     41.205611 [  -50.0000,    50.0000]
+con_amp         31     -2.015063 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0        32      3.036414 [    0.0095,    95.0000]
+offset_0        33     -0.309847 [-10007.9920, 10006.5920]
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp         34    -19.397500 [  -50.0000,    50.0000]
+con_amp         35      8.741865 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0        36      1.933708 [    0.0095,    95.0000]
+offset_0        37      1.887399 [-10005.2830, 10005.2330]
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp         38     -8.207611 [  -50.0000,    50.0000]
+con_amp         39    -17.931735 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0        40      1.788300 [    0.0095,    95.0000]
+offset_0        41     -0.720509 [-10007.0000, 10004.9000]
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp         42    -44.631283 [  -50.0000,    50.0000]
+con_amp         43     12.043402 [ -100.0000,   100.0000]
+
+----- common model:  b
+P                0      1.536156 [    0.5850,     3.3219]
+K                1      1.133590 [   -3.3219,     2.0000]
+sre_coso         2     -0.275325 [   -1.0000,     1.0000]
+sre_sino         3     -0.104835 [   -1.0000,     1.0000]
+mean_long        4    118.547683 [  -67.9494,   292.0506]
+
+----- common model:  activity
+Prot             5     26.301937 [   20.0000,    35.0000]
+Pdec             6     71.616111 [   10.0000,  2000.0000]
+Oamp             7      0.138165 [   -6.6439,     2.3219]
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0              0.797638 
+offset_0              0.734597 
+
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp              37.846682 
+con_amp              -2.632263 
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+x_zero            59346.600061 
+poly_c1               0.112686 
+poly_c2              -0.004687 
+
+----- dataset:  ESSP_EXPRES
+jitter_0              1.223940 
+offset_0              0.689932 
+
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp              17.808880 
+con_amp              -8.240368 
+
+----- dataset:  ESSP_NEID
+jitter_0              1.518415 
+offset_0              0.862343 
+
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp              30.218788 
+con_amp               9.659903 
+
+----- dataset:  ESSP_HARPS
+jitter_0              0.845817 
+offset_0             -0.400752 
+
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp              27.065254 
+con_amp               5.622033 
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+x_zero            59345.406230 
+poly_c1               0.125084 
+poly_c2              -0.004826 
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0              1.353433 
+offset_0             -0.389882 
+
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp              41.205611 
+con_amp              -2.015063 
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0              3.036414 
+offset_0             -0.309847 
+
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp             -19.397500 
+con_amp               8.741865 
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0              1.933708 
+offset_0              1.887399 
+
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp              -8.207611 
+con_amp             -17.931735 
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0              1.788300 
+offset_0             -0.720509 
+
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp             -44.631283 
+con_amp              12.043402 
+
+----- common model:  b
+P                     2.900207 
+K                     2.194040 
+mean_long           118.547683 
+e                     0.086794 
+omega              -159.154774 
+
+----- common model:  activity
+Prot                 26.301937 
+Pdec                 71.616111 
+Oamp                  1.100505 
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+M_Mj                  0.015334 
+M_Me                  4.874523 
+Tc                59334.936587 
+a_AU_(M)              0.039801 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+ Parameters corresponding to the sample closest to the median values ( -1241.791475204939 )
+
+====================================================================================================
+     Statistics on the posterior of the sampler parameters     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0         8      0.798380 [    0.0015,    17.2000]
+offset_0         9      0.353095 [-10004.2510, 10005.0770]
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp         10     37.078852 [    0.0000,    50.0000]
+con_amp         11    -23.248667 [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+poly_c1         12      0.118414 [-1000000.0000, 1000000.0000]
+poly_c2         13     -0.000031 [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_EXPRES
+jitter_0        14      1.148467 [    0.0017,    18.9000]
+offset_0        15     -0.029276 [-10004.1700, 10004.5630]
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp         16      3.576580 [  -50.0000,    50.0000]
+con_amp         17    -19.263995 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_NEID
+jitter_0        18      1.772307 [    0.0024,    28.9000]
+offset_0        19      1.678771 [-10003.7260, 10006.8360]
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp         20     47.528189 [  -50.0000,    50.0000]
+con_amp         21      0.389829 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_HARPS
+jitter_0        22      0.997468 [    0.0019,    21.8000]
+offset_0        23     -0.082948 [-10004.1660, 10005.6730]
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp         24     28.117896 [  -50.0000,    50.0000]
+con_amp         25     -6.086124 [ -100.0000,   100.0000]
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+poly_c1         26      0.134548 [-1000000.0000, 1000000.0000]
+poly_c2         27     -0.003582 [-1000000.0000, 1000000.0000]
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0        28      1.557715 [    0.0095,    95.0000]
+offset_0        29      0.152440 [-10004.2830, 10004.6830]
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp         30     28.961517 [  -50.0000,    50.0000]
+con_amp         31    -22.687108 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0        32      2.920487 [    0.0095,    95.0000]
+offset_0        33     -0.189360 [-10007.9920, 10006.5920]
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp         34      0.711686 [  -50.0000,    50.0000]
+con_amp         35     51.963505 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0        36      1.714800 [    0.0095,    95.0000]
+offset_0        37      0.670518 [-10005.2830, 10005.2330]
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp         38    -18.197618 [  -50.0000,    50.0000]
+con_amp         39    -17.068604 [ -100.0000,   100.0000]
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0        40      1.908177 [    0.0095,    95.0000]
+offset_0        41     -0.343635 [-10007.0000, 10004.9000]
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp         42    -25.460882 [  -50.0000,    50.0000]
+con_amp         43     41.666682 [ -100.0000,   100.0000]
+
+----- common model:  b
+P                0      1.530822 [    0.5850,     3.3219]
+K                1      1.243926 [   -3.3219,     2.0000]
+sre_coso         2     -0.351861 [   -1.0000,     1.0000]
+sre_sino         3     -0.013890 [   -1.0000,     1.0000]
+mean_long        4    108.805818 [  -67.9494,   292.0506]
+
+----- common model:  activity
+Prot             5     27.997623 [   20.0000,    35.0000]
+Pdec             6     73.215587 [   10.0000,  2000.0000]
+Oamp             7      0.472222 [   -6.6439,     2.3219]
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the model parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- dataset:  ESSP_HARPSN
+jitter_0              0.798380 
+offset_0              0.353095 
+
+
+----- dataset: ESSP_HARPSN               ----- model: gp_multidimensional           
+rot_amp              37.078852 
+con_amp             -23.248667 
+
+----- dataset: ESSP_HARPSN               ----- model: polynomial_trend              
+x_zero            59346.600061 
+poly_c1               0.118414 
+poly_c2              -0.000031 
+
+----- dataset:  ESSP_EXPRES
+jitter_0              1.148467 
+offset_0             -0.029276 
+
+
+----- dataset: ESSP_EXPRES               ----- model: gp_multidimensional           
+rot_amp               3.576580 
+con_amp             -19.263995 
+
+----- dataset:  ESSP_NEID
+jitter_0              1.772307 
+offset_0              1.678771 
+
+
+----- dataset: ESSP_NEID                 ----- model: gp_multidimensional           
+rot_amp              47.528189 
+con_amp               0.389829 
+
+----- dataset:  ESSP_HARPS
+jitter_0              0.997468 
+offset_0             -0.082948 
+
+
+----- dataset: ESSP_HARPS                ----- model: gp_multidimensional           
+rot_amp              28.117896 
+con_amp              -6.086124 
+
+----- dataset: ESSP_HARPS                ----- model: polynomial_trend              
+x_zero            59345.406230 
+poly_c1               0.134548 
+poly_c2              -0.003582 
+
+----- dataset:  ESSP_BIS_HARPSN
+jitter_0              1.557715 
+offset_0              0.152440 
+
+
+----- dataset: ESSP_BIS_HARPSN           ----- model: gp_multidimensional           
+rot_amp              28.961517 
+con_amp             -22.687108 
+
+----- dataset:  ESSP_BIS_EXPRES
+jitter_0              2.920487 
+offset_0             -0.189360 
+
+
+----- dataset: ESSP_BIS_EXPRES           ----- model: gp_multidimensional           
+rot_amp               0.711686 
+con_amp              51.963505 
+
+----- dataset:  ESSP_BIS_NEID
+jitter_0              1.714800 
+offset_0              0.670518 
+
+
+----- dataset: ESSP_BIS_NEID             ----- model: gp_multidimensional           
+rot_amp             -18.197618 
+con_amp             -17.068604 
+
+----- dataset:  ESSP_BIS_HARPS
+jitter_0              1.908177 
+offset_0             -0.343635 
+
+
+----- dataset: ESSP_BIS_HARPS            ----- model: gp_multidimensional           
+rot_amp             -25.460882 
+con_amp              41.666682 
+
+----- common model:  b
+P                     2.889503 
+K                     2.368421 
+mean_long           108.805818 
+e                     0.123999 
+omega              -177.739346 
+
+----- common model:  activity
+Prot                 27.997623 
+Pdec                 73.215587 
+Oamp                  1.387245 
+
+----- common model:  star_parameters
+
+----- common model:  polynomial_trend
+
+====================================================================================================
+     Statistics on the derived parameters obtained from the posteriors samples     
+====================================================================================================
+
+----- common model:  b
+Inclination fixed to 90 deg!
+M_Mj                  0.016467 
+M_Me                  5.234666 
+Tc                59335.042443 
+a_AU_(M)              0.039703 
+
+
+====================================================================================================
+     ------------------------------------------------------------------------------------------     
+====================================================================================================
+
+
+
+****************************************************************************************************
+
+Inclination fixed to 90 deg!
+ *** Please provide a prior on stellar mass, radius or density *** 
+
+Inclination fixed to 90 deg!
+Inclination fixed to 90 deg!
+ Plot FLAT chain 
+
+****************************************************************************************************
+
+Plotting full_correlation plot with pygtc
+
+****************************************************************************************************
+
+ Plotting the chains... 
+
+****************************************************************************************************
+
+ Plotting the Gelman-Rubin traces... 
+
+     Gelman-Rubin:     8     1.133594 ESSP_HARPSN_jitter_0 
+     Gelman-Rubin:     9     1.458635 ESSP_HARPSN_offset_0 
+     Gelman-Rubin:    10     1.099416 ESSP_HARPSN_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    11     1.268032 ESSP_HARPSN_gp_multidimensional_con_amp 
+     Gelman-Rubin:    12     1.172416 ESSP_HARPSN_polynomial_trend_poly_c1 
+     Gelman-Rubin:    13     1.167888 ESSP_HARPSN_polynomial_trend_poly_c2 
+     Gelman-Rubin:    14     1.119470 ESSP_EXPRES_jitter_0 
+     Gelman-Rubin:    15     1.623827 ESSP_EXPRES_offset_0 
+     Gelman-Rubin:    16     1.238881 ESSP_EXPRES_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    17     1.192117 ESSP_EXPRES_gp_multidimensional_con_amp 
+     Gelman-Rubin:    18     1.137375 ESSP_NEID_jitter_0 
+     Gelman-Rubin:    19     1.351963 ESSP_NEID_offset_0 
+     Gelman-Rubin:    20     1.110092 ESSP_NEID_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    21     1.266755 ESSP_NEID_gp_multidimensional_con_amp 
+     Gelman-Rubin:    22     1.138894 ESSP_HARPS_jitter_0 
+     Gelman-Rubin:    23     1.355010 ESSP_HARPS_offset_0 
+     Gelman-Rubin:    24     1.119522 ESSP_HARPS_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    25     1.289324 ESSP_HARPS_gp_multidimensional_con_amp 
+     Gelman-Rubin:    26     1.217055 ESSP_HARPS_polynomial_trend_poly_c1 
+     Gelman-Rubin:    27     1.143806 ESSP_HARPS_polynomial_trend_poly_c2 
+     Gelman-Rubin:    28     1.120628 ESSP_BIS_HARPSN_jitter_0 
+     Gelman-Rubin:    29     1.446980 ESSP_BIS_HARPSN_offset_0 
+     Gelman-Rubin:    30     1.144324 ESSP_BIS_HARPSN_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    31     1.249007 ESSP_BIS_HARPSN_gp_multidimensional_con_amp 
+     Gelman-Rubin:    32     1.145062 ESSP_BIS_EXPRES_jitter_0 
+     Gelman-Rubin:    33     1.567439 ESSP_BIS_EXPRES_offset_0 
+     Gelman-Rubin:    34     1.231076 ESSP_BIS_EXPRES_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    35     1.219365 ESSP_BIS_EXPRES_gp_multidimensional_con_amp 
+     Gelman-Rubin:    36     1.125724 ESSP_BIS_NEID_jitter_0 
+     Gelman-Rubin:    37     1.566205 ESSP_BIS_NEID_offset_0 
+     Gelman-Rubin:    38     1.191121 ESSP_BIS_NEID_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    39     1.217640 ESSP_BIS_NEID_gp_multidimensional_con_amp 
+     Gelman-Rubin:    40     1.173130 ESSP_BIS_HARPS_jitter_0 
+     Gelman-Rubin:    41     1.590755 ESSP_BIS_HARPS_offset_0 
+     Gelman-Rubin:    42     1.181546 ESSP_BIS_HARPS_gp_multidimensional_rot_amp 
+     Gelman-Rubin:    43     1.183329 ESSP_BIS_HARPS_gp_multidimensional_con_amp 
+     Gelman-Rubin:     0     1.191475 b_P 
+     Gelman-Rubin:     1     1.126516 b_K 
+     Gelman-Rubin:     2     1.170210 b_sre_coso 
+     Gelman-Rubin:     3     1.153584 b_sre_sino 
+     Gelman-Rubin:     4     1.183114 b_mean_long 
+     Gelman-Rubin:     5     1.193809 activity_Prot 
+     Gelman-Rubin:     6     1.095177 activity_Pdec 
+     Gelman-Rubin:     7     1.121681 activity_Oamp 
+
+****************************************************************************************************
+
+Plotting the common models corner plots
+     Common model:  b
+     Common model:  activity
+     Common model:  star_parameters
+     Common model:  polynomial_trend
+
+****************************************************************************************************
+
+Plotting the dataset + models corner plots 
+
+     Dataset:  ESSP_HARPSN     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_HARPSN     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_HARPSN     model:  polynomial_trend  corner plot  starting 
+     Dataset:  ESSP_HARPSN     model:  polynomial_trend  corner plot  done 
+     Dataset:  ESSP_HARPSN     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  ESSP_HARPSN     model:  radial_velocities_b  corner plot  done 
+     Dataset:  ESSP_EXPRES     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_EXPRES     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_EXPRES     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  ESSP_EXPRES     model:  radial_velocities_b  corner plot  done 
+     Dataset:  ESSP_NEID     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_NEID     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_NEID     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  ESSP_NEID     model:  radial_velocities_b  corner plot  done 
+     Dataset:  ESSP_HARPS     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_HARPS     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_HARPS     model:  polynomial_trend  corner plot  starting 
+     Dataset:  ESSP_HARPS     model:  polynomial_trend  corner plot  done 
+     Dataset:  ESSP_HARPS     model:  radial_velocities_b  corner plot  starting 
+     Dataset:  ESSP_HARPS     model:  radial_velocities_b  corner plot  done 
+     Dataset:  ESSP_BIS_HARPSN     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_BIS_HARPSN     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_BIS_EXPRES     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_BIS_EXPRES     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_BIS_NEID     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_BIS_NEID     model:  gp_multidimensional  corner plot  done 
+     Dataset:  ESSP_BIS_HARPS     model:  gp_multidimensional  corner plot  starting 
+     Dataset:  ESSP_BIS_HARPS     model:  gp_multidimensional  corner plot  done 
+
+****************************************************************************************************
+
+ Saving the planet parameter samplings to files (with plots)
+
+****************************************************************************************************
+
+ Saving all the parameter samplings to files (with plots)
+
+****************************************************************************************************
+
+ Computing the models for plot/data writing 
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 17 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 18 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 17 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 18 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 21 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 17 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 18 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+     Splitting the plot array to allow GP prediction of extended datasets, it may take a while...
+     # 13 chunks of 51 times each
+     Check the documentation if the code is taking too long or if it crashes...
+ Writing the plots 
+ Writing the   data files 
+ Writing the  MAP_ data files 
+ Writing the  sampleMED_ data files 
+
+****************************************************************************************************
+
