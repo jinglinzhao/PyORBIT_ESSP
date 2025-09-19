@@ -138,11 +138,12 @@ solver:
     npop_mult: 12
     use_threading_pool: False
   emcee:
-    npop_mult: 12
-    nsteps: 25000
-    nburn: 25000
-    thin: 20
+    npop_mult: 8
+    nsteps: 18000
+    nburn: 6000
+    thin: 15
     multiprocessing: False
+    use_threading_pool: False
     backend: 'jax'
   nested_sampling:
     nlive: 1000

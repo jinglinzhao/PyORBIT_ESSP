@@ -11,11 +11,11 @@
 ### -- specify that the cores must be on the same host --
 #BSUB -R "span[hosts=1]"
 ### -- request memory --
-#BSUB -R "rusage[mem=32GB]"
+#BSUB -R "rusage[mem=4GB]"
 ### -- set memory limit --
-#BSUB -M 32GB
+#BSUB -M 4GB
 ### -- set walltime limit --
-#BSUB -W 2:00
+#BSUB -W 5:00
 ### -- set the email address --
 #BSUB -u jzhao@space.dtu.dk
 ### -- send notification at start --
@@ -23,8 +23,7 @@
 ### -- send notification at completion --
 #BSUB -N
 ### -- Specify the output and error file --
-#BSUB -o /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP/logfiles/Output_ESSP_poly_GPU_FIXED_%J.out
-#BSUB -e /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP/logfiles/Error_ESSP_poly_GPU_FIXED_%J.err
+#BSUB -o /work2/lbuc/jzhao/PyORBIT_ESSP/ESSP/logfiles/Output_ESSP_poly_GPU_FIXED.out
 
 # -- end of LSF options --
 
@@ -53,17 +52,21 @@ nvcc --version
 # 🔥 CRITICAL FIX: DISABLE MULTIPROCESSING FOR GPU 🔥
 echo "=== Setting Single-Process GPU Environment ==="
 export JAX_PLATFORM_NAME=gpu
-export XLA_PYTHON_CLIENT_MEM_FRACTION=0.9
+export XLA_PYTHON_CLIENT_MEM_FRACTION=0.85  # Slightly reduced
 export XLA_PYTHON_CLIENT_PREALLOCATE=false
 export JAX_ENABLE_X64=true
 export XLA_FLAGS="--xla_gpu_cuda_data_dir=/appl/cuda/11.6.0 --xla_gpu_force_compilation_parallelism=4"
 export CUDA_VISIBLE_DEVICES=0
+export JAX_PLATFORMS=gpu
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+export JAX_DISABLE_MOST_OPTIMIZATIONS=1
 
 # 🎯 KEY FIX: FORCE SINGLE THREADING
 export OMP_NUM_THREADS=1
 export MKL_NUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1
 export OPENBLAS_NUM_THREADS=1
+export JAX_ENABLE_ASYNC=false  # 🔥 NEW: Disable async operation
 
 # Activate Conda environment
 echo "=== Activating PyORBIT Environment ==="
@@ -72,6 +75,19 @@ conda activate pyorbit_gpu
 
 echo "Active environment: $CONDA_DEFAULT_ENV"
 echo "Python version: $(python --version)"
+
+
+# 🔥 CRITICAL: Prevent GPU multi-threading conflicts
+export JAX_PLATFORMS=gpu
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+export CUDA_VISIBLE_DEVICES=0
+export JAX_DISABLE_MOST_OPTIMIZATIONS=1  # Reduces GPU memory conflicts
+export TF_FORCE_GPU_ALLOW_GROWTH=true    # If TensorFlow is involved
+
+# 🎯 Force single GPU process
+export JAX_PLATFORM_NAME=gpu
+export XLA_PYTHON_CLIENT_ALLOCATOR=platform
+
 
 # Test GPU setup
 echo "=== JAX GPU Test ==="

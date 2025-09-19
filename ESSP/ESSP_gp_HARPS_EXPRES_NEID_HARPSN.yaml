@@ -93,7 +93,7 @@ models:
     model: local_polynomial_trend
     order: 2
   gp_multidimensional:
-    model: spleaf_multidimensional_esp
+    model: tinygp_multidimensional_quasiperiodic
     common: activity
     n_harmonics: 4
     hyperparameters_condition: true
