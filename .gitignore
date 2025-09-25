@@ -7,3 +7,5 @@ __pycache__/
 *.pkl
 *.pickle
 .DS_Store
+*.dat
+**/*.dat
