@@ -1,0 +1,113 @@
+inputs:
+  RVdata:
+    file: Combined/RV_combined.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  BISdata:
+    file: Combined/CCF_BIS_combined.dat
+    kind: BIS
+    models:
+      - gp_multidimensional 
+  FWHMdata:
+    file: Combined/CCF_FWHM_combined.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional      
+
+common:
+  planets:
+    b:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [13.5, 15.0]        # 🔥 TIGHTENED from analysis
+        K: [0.5, 3.0]          # 🔥 NARROWED based on results
+        e: [0.00, 0.40]
+    c:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [32.0, 35.0]        # 🔥 TIGHTENED from analysis
+        K: [0.5, 3.0]          # 🔥 NARROWED based on results
+        e: [0.05, 0.35]        # 🔥 ADJUSTED range
+    d:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [55.0, 110.0]       # 🔥 FOCUSED on detected range
+        K: [0.3, 4.0]          # 🔥 REASONABLE range
+        e: [0.00, 0.50]        # 🔥 REDUCED from 0.70
+    e:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [200.0, 500.0]      # 🔥 FOCUSED on outer region
+        K: [0.3, 4.0]          # 🔥 REASONABLE range
+        e: [0.00, 0.60]        # 🔥 REDUCED extreme values
+
+  activity:
+    boundaries:
+      Prot: [18.0, 25.0]       # 🔥 TIGHTENED around detected value
+      Pdec: [35.0, 60.0]       # 🔥 NARROWED for faster convergence
+      Oamp: [0.3, 0.6]         # 🔥 FOCUSED around prior
+    priors:
+      Prot: ['Gaussian', 20.50, 0.80]  # 🔥 TIGHTER prior
+      Oamp: ['Gaussian', 0.45, 0.05]   # 🔥 ADJUSTED based on results
+
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 0.83, 0.01]
+
+models:
+  radial_velocities:
+    planets:
+      - b
+      - c
+      - d
+      - e
+
+  polynomial_trend:
+    model: local_polynomial_trend
+    order: 1                   # 🔥 REDUCED from 2 (fewer parameters)
+
+  gp_multidimensional:
+    model: spleaf_multidimensional_esp
+    common: activity
+    hyperparameters_condition: True
+    rotation_decay_condition: True
+    RVdata:
+      boundaries:
+        rot_amp: [0.0, 10.0]   # 🔥 REDUCED upper limit
+        con_amp: [-5.0, 5.0]   # 🔥 TIGHTENED range
+      derivative: True
+    BISdata:
+      boundaries:
+        rot_amp: [-8.0, 8.0]   # 🔥 TIGHTENED range
+        con_amp: [-3.0, 3.0]   # 🔥 REDUCED range
+      derivative: True
+    FWHMdata:
+      boundaries:
+        con_amp: [-10.0, 10.0] # 🔥 MUCH tighter range
+      derivative: False
+
+parameters:
+  Tref: 2452937.54737118
+
+solver:
+  pyde:
+    ngen: 75000              # 🔥 INCREASED for better initialization
+    npop_mult: 6             # 🔥 INCREASED population
+    
+  emcee:
+    npop_mult: 6             # 🔥 INCREASED walkers
+    nsteps: 150000           # 🔥 MAJOR INCREASE (6x longer!)
+    nburn: 50000             # 🔥 LONGER burn-in
+    thin: 50                 # 🔥 INCREASED thinning
+    
+  nested_sampling:
+    nlive: 1500              # 🔥 INCREASED live points
+    
+  recenter_bounds: True

@@ -1,0 +1,103 @@
+inputs:
+  RVdata:
+    file: Combined/RV_combined.dat
+    kind: RV
+    models:
+      - radial_velocities
+      - gp_multidimensional
+  BISdata:
+    file: Combined/CCF_BIS_combined.dat
+    kind: BIS
+    models:
+      - gp_multidimensional 
+  FWHMdata:
+    file: Combined/CCF_FWHM_combined.dat
+    kind: FWHM
+    models:
+      - gp_multidimensional      
+common:
+  planets:
+    b:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [10, 30]
+        K: [0.1, 5.0]
+        e: [0.00, 0.40]
+    c:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [30, 45]
+        K: [0.1, 5.0]
+        e: [0.10, 0.50]
+    d:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [2, 5000]
+        K: [0.1, 5.0]
+        e: [0.00, 0.70]
+    e:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [2, 5000]
+        K: [0.1, 5.0]
+        e: [0.00, 0.70]
+  activity:
+    boundaries:
+      Prot: [15.0, 50.0]
+      Pdec: [30.0, 1000.0]
+      Oamp: [0.01, 1.0]
+    priors:
+      Prot: ['Gaussian', 20.00, 1.0]
+      Oamp: ['Gaussian', 0.35, 0.035]    
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 0.83, 0.01]
+models:
+  radial_velocities:
+    planets:
+      - b
+      - c
+      - d
+      - e
+  polynomial_trend:
+    model: local_polynomial_trend
+    order: 2
+  gp_multidimensional:
+    # model: tinygp_multidimensional_quasiperiodic
+    model: spleaf_multidimensional_esp
+    common: activity
+    hyperparameters_condition: True
+    rotation_decay_condition: True
+    RVdata:
+      boundaries:
+        rot_amp: [0.0, 20.0] #at least one must be positive definite
+        con_amp: [-20.0, 20.0]
+      derivative: True
+    BISdata:
+      boundaries:
+        rot_amp: [-20.0, 20.0]
+        con_amp: [-20.0, 20.0]
+      derivative: True
+    FWHMdata:
+      boundaries:
+        con_amp: [-50., 50.]
+      derivative: False
+parameters:
+  Tref: 2452937.54737118
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 25000
+    nburn: 6250
+    thin: 20
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True
