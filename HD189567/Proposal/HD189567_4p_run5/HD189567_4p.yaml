@@ -21,15 +21,15 @@ common:
       orbit: keplerian
       parametrization: Eastman2013
       boundaries:
-        P: [13.5, 15.0]        # 🔥 FIXED: Your result shows 14.296d
-        K: [0.5, 3.0]          # 🔥 TIGHTENED: Result shows ~1.87 m/s
+        P: [10, 30]
+        K: [0.1, 5.0]
         e: [0.00, 0.40]
     c:
       orbit: keplerian
       parametrization: Eastman2013
       boundaries:
-        P: [32.0, 35.0]        # 🔥 FIXED: Your result shows 33.685d
-        K: [0.5, 3.0]          # 🔥 TIGHTENED: Result shows ~1.81 m/s
+        P: [30, 45]
+        K: [0.1, 5.0]
         e: [0.10, 0.50]
     d:
       orbit: keplerian
@@ -38,13 +38,20 @@ common:
         P: [2, 5000]
         K: [0.1, 5.0]
         e: [0.00, 0.70]
+    e:
+      orbit: keplerian
+      parametrization: Eastman2013
+      boundaries:
+        P: [2, 5000]
+        K: [0.1, 5.0]
+        e: [0.00, 0.70]
   activity:
     boundaries:
-      Prot: [15.0, 70.0]
+      Prot: [15.0, 50.0]
       Pdec: [30.0, 1000.0]
       Oamp: [0.01, 1.0]
     priors:
-      Prot: ['Gaussian', 40.00, 20.0]
+      Prot: ['Gaussian', 30.00, 10.0]
       Oamp: ['Gaussian', 0.35, 0.035]    
   star:
     star_parameters:
@@ -56,6 +63,7 @@ models:
       - b
       - c
       - d
+      - e
   polynomial_trend:
     model: local_polynomial_trend
     order: 1

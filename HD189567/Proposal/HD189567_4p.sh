@@ -5,13 +5,13 @@
 ### -- set the job Name -- 
 #BSUB -J HD189567_4p
 ### -- ask for number of cores (default: 1) -- 
-#BSUB -n 48
+#BSUB -n 24
 ### -- specify that the cores must be on the same host -- 
 #BSUB -R "span[hosts=1]"
 ### -- specify that we need 4GB of memory per core/slot -- 
-#BSUB -R "rusage[mem=0.5GB]"
+#BSUB -R "rusage[mem=1GB]"
 ### -- specify that we want the job to get killed if it exceeds 5GB per core/slot -- 
-#BSUB -M 1GB
+#BSUB -M 2GB
 ### -- set walltime limit: hh:mm -- 
 #BSUB -W 10:00
 ### -- send notification at start -- 

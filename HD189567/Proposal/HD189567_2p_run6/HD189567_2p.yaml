@@ -21,23 +21,16 @@ common:
       orbit: keplerian
       parametrization: Eastman2013
       boundaries:
-        P: [13.5, 15.0]        # 🔥 FIXED: Your result shows 14.296d
-        K: [0.5, 3.0]          # 🔥 TIGHTENED: Result shows ~1.87 m/s
+        P: [10, 30]
+        K: [0.1, 5.0]
         e: [0.00, 0.40]
     c:
       orbit: keplerian
       parametrization: Eastman2013
       boundaries:
-        P: [32.0, 35.0]        # 🔥 FIXED: Your result shows 33.685d
-        K: [0.5, 3.0]          # 🔥 TIGHTENED: Result shows ~1.81 m/s
-        e: [0.10, 0.50]
-    d:
-      orbit: keplerian
-      parametrization: Eastman2013
-      boundaries:
-        P: [2, 5000]
+        P: [30, 45]
         K: [0.1, 5.0]
-        e: [0.00, 0.70]
+        e: [0.10, 0.50]
   activity:
     boundaries:
       Prot: [15.0, 70.0]
@@ -55,10 +48,9 @@ models:
     planets:
       - b
       - c
-      - d
   polynomial_trend:
     model: local_polynomial_trend
-    order: 1
+    order: 2
   gp_multidimensional:
     # model: tinygp_multidimensional_quasiperiodic
     model: spleaf_multidimensional_esp
@@ -83,16 +75,13 @@ parameters:
   Tref: 2452937.54737118
 solver:
   pyde:
-    ngen: 75000              # 🔥 INCREASED
-    npop_mult: 6             # 🔥 INCREASED
-    
+    ngen: 50000
+    npop_mult: 4
   emcee:
-    npop_mult: 6             # 🔥 INCREASED
-    nsteps: 150000           # 🔥 CRITICAL: 6x longer!
-    nburn: 50000             # 🔥 LONGER burn-in
-    thin: 50                 # 🔥 INCREASED thinning
-    
+    npop_mult: 4
+    nsteps: 2500
+    nburn: 625
+    thin: 20
   nested_sampling:
-    nlive: 1500
-    
+    nlive: 1000
   recenter_bounds: True
