@@ -1,0 +1,47 @@
+inputs:
+  RVdata:
+    file: ../../../DS1_RV.dat
+    kind: RV
+    models:
+      - radial_velocities
+
+common:
+  planets:
+    b:
+      orbit: keplerian
+      boundaries:
+        P: [1.3, 100.0]
+        K: [0.001, 10.0]
+        e: [0.00, 0.70]
+      priors:
+        e: ['Gaussian', 0.00, 0.098]
+  star:
+    star_parameters:
+      priors:
+        mass: ['Gaussian', 1, 0.000001]
+        radius: ['Gaussian', 1, 0.000001]
+        density: ['Gaussian', 1, 0.000001]
+
+models:
+  radial_velocities:
+    planets:
+      - b
+
+parameters:
+  Tref: 59334.700184
+  low_ram_plot: True
+  plot_split_threshold: 1000
+  cpu_threads: 16
+
+solver:
+  pyde:
+    ngen: 50000
+    npop_mult: 4
+  emcee:
+    npop_mult: 4
+    nsteps: 50000
+    nburn: 20000
+    thin: 100
+  nested_sampling:
+    nlive: 1000
+  recenter_bounds: True

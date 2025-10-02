@@ -78,10 +78,10 @@ solver:
     ngen: 50000
     npop_mult: 4
   emcee:
-    npop_mult: 4
-    nsteps: 2500
+    npop_mult: 6
+    nsteps: 15000
     nburn: 625
-    thin: 20
+    thin: 10
   nested_sampling:
     nlive: 1000
   recenter_bounds: True

@@ -19,7 +19,7 @@
 ### -- send notification at completion -- 
 #BSUB -N 
 ### -- Specify the output and error file. %J is the job-id -- 
-#BSUB -o HD189567_4p.out
+#BSUB -o out/HD189567_4p.out
 
 export PATH="/zhome/9d/b/207249/anaconda3/bin:$PATH"
 source /zhome/9d/b/207249/anaconda3/etc/profile.d/conda.sh
@@ -36,6 +36,7 @@ NAME="HD189567_4p"
 
 # Create output directory FIRST
 mkdir -p ${NAME}
+rm ${NAME}.out
 
 echo "Starting PyORBIT emcee run..."
 pyorbit_run emcee ${NAME}.yaml

@@ -36,8 +36,8 @@ conda activate pyorbit
 
 # Run PyORBIT analysis
 # instrument="HARPS_EXPRES_NEID_HARPSN"
-instrument="HARPSN_EXPRES_NEID_HARPS"
-# instrument="HARPSN_EXPRES_NEID_HARPS_poly_cpu"
+# instrument="HARPSN_EXPRES_NEID_HARPS"
+instrument="HARPSN_EXPRES_NEID_HARPS_poly_cpu"
 NAME="ESSP_gp_${instrument}"
 
 echo "Starting PyORBIT analysis for ${NAME} at $(date)"
